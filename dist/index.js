@@ -28526,19 +28526,19 @@ function setFailed(message) {
     error(message);
 }
 /**
- * Writes debug message to user log
- * @param message debug message
- */
-function debug(message) {
-    issueCommand('debug', {}, message);
-}
-/**
  * Adds an error issue
  * @param message error issue message. Errors will be converted to string via toString()
  * @param properties optional properties to add to the annotation.
  */
 function error(message, properties = {}) {
     issueCommand('error', toCommandProperties(properties), message instanceof Error ? message.toString() : message);
+}
+/**
+ * Writes info to log with console.log.
+ * @param message info message
+ */
+function info(message) {
+    process.stdout.write(message + os.EOL);
 }
 
 async function main() {
@@ -28565,11 +28565,9 @@ async function main() {
     method: "POST", headers, body: JSON.stringify(body)
   }).then((response) => {
     if (!response.ok) {
-      debug(`Webhook response body: ${response.text()}`);
+      info(`Webhook response body: ${response.text()}`);
       throw new Error(`Webhook returned unexpected HTTP error: ${response.status}`);
     }
-
-    return response.json();
   });
 }
 

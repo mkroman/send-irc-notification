@@ -24,11 +24,9 @@ async function main() {
     method: "POST", headers, body: JSON.stringify(body)
   }).then((response) => {
     if (!response.ok) {
-      core.debug(`Webhook response body: ${response.text()}`);
+      core.info(`Webhook response body: ${response.text()}`);
       throw new Error(`Webhook returned unexpected HTTP error: ${response.status}`);
     }
-
-    return response.json();
   });
 }
 
