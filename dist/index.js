@@ -28562,7 +28562,7 @@ async function main() {
   };
 
   return await fetch(webhookUrl, {
-    method: "POST", headers, body
+    method: "POST", headers, body: JSON.stringify(body)
   }).then((response) => {
     if (!response.ok) {
       debug(`Webhook response body: ${response.text()}`);
