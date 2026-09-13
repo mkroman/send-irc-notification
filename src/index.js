@@ -4,7 +4,7 @@ async function main() {
   const channel = core.getInput("channel", { required: true });
   const message = core.getInput("message", { required: true });
   const network = core.getInput("network", { required: true });
-  const webhookUrl = core.getInput("webohok-url", { required: true });
+  const webhookUrl = core.getInput("webhook-url", { required: true });
   const token = core.getInput("token", { required: true });
 
   core.setSecret(token);

@@ -28545,7 +28545,7 @@ async function main() {
   const channel = getInput("channel", { required: true });
   const message = getInput("message", { required: true });
   const network = getInput("network", { required: true });
-  const webhookUrl = getInput("webohok-url", { required: true });
+  const webhookUrl = getInput("webhook-url", { required: true });
   const token = getInput("token", { required: true });
 
   setSecret(token);
